@@ -78,5 +78,17 @@ namespace PrimeFactors.Test
 
             Assert.AreEqual(expected, actual);
         }
+
+        [Test]
+        public void GetFactors_ShouldReturn3_5_WhenInput15()
+        {
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(15);
+            PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
+
+            var expected = new List<int> { 3, 5 };
+            var actual = management.GetFactors(15);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
