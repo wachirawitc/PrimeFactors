@@ -1,7 +1,7 @@
 ﻿using PrimeFactors.Interface;
 using System.Collections.Generic;
 
-namespace PrimeFactors
+namespace PrimeFactors.Internal
 {
     public class DefaultPrimeNumber : IPrimeNumber
     {

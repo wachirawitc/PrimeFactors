@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using PrimeFactors.Interface;
 using System.Collections.Generic;
+using PrimeFactors.Internal;
 
 namespace PrimeFactors.Test
 {
