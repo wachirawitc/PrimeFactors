@@ -30,7 +30,7 @@ namespace PrimeFactors
                 }
             }
 
-            return model;
+            return model.OrderBy(x => x).ToList();
         }
 
         private List<int> GetCommonPlus(int value)

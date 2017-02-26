@@ -10,7 +10,7 @@ namespace PrimeFactors.Test
         [Test]
         public void GetFactors_ShouldReturn2_WhenInput2()
         {
-            IPrimeNumber primeNumber = new DefaultPrimeNumber(100);
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(2);
             PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
 
             var expected = new List<int> { 2 };
@@ -22,7 +22,7 @@ namespace PrimeFactors.Test
         [Test]
         public void GetFactors_ShouldReturn3_WhenInput3()
         {
-            IPrimeNumber primeNumber = new DefaultPrimeNumber(100);
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(3);
             PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
 
             var expected = new List<int> { 3 };
@@ -34,7 +34,7 @@ namespace PrimeFactors.Test
         [Test]
         public void GetFactors_ShouldReturn2_2_WhenInput4()
         {
-            IPrimeNumber primeNumber = new DefaultPrimeNumber(100);
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(4);
             PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
 
             var expected = new List<int> { 2, 2 };
@@ -46,7 +46,7 @@ namespace PrimeFactors.Test
         [Test]
         public void GetFactors_ShouldReturn2_3_WhenInput6()
         {
-            IPrimeNumber primeNumber = new DefaultPrimeNumber(100);
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(6);
             PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
 
             var expected = new List<int> { 2, 3 };
@@ -58,11 +58,23 @@ namespace PrimeFactors.Test
         [Test]
         public void GetFactors_ShouldReturn3_3_WhenInput9()
         {
-            IPrimeNumber primeNumber = new DefaultPrimeNumber(100);
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(9);
             PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
 
             var expected = new List<int> { 3, 3 };
             var actual = management.GetFactors(9);
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void GetFactors_ShouldReturn2_2_3_WhenInput12()
+        {
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(12);
+            PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
+
+            var expected = new List<int> { 2, 2, 3 };
+            var actual = management.GetFactors(12);
 
             Assert.AreEqual(expected, actual);
         }
