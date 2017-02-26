@@ -5,18 +5,18 @@ namespace PrimeFactors
 {
     public class PrimeFactorManagement
     {
-        private readonly List<int> primes;
+        private readonly IPrimeNumber primeNumber;
 
         public PrimeFactorManagement(IPrimeNumber primeNumber)
         {
-            primes = primeNumber.Sources;
+            this.primeNumber = primeNumber;
         }
 
         public List<int> GetFactors(int value)
         {
             var model = new List<int>();
 
-            var scanner = new Scanner<int>(primes);
+            var scanner = new Scanner<int>(primeNumber.Sources);
             while (scanner.HasNext() && value > 1)
             {
                 var prime = scanner.Value;
