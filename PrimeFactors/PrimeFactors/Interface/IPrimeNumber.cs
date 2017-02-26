@@ -4,6 +4,6 @@ namespace PrimeFactors.Interface
 {
     public interface IPrimeNumber
     {
-        List<int> DataSources { get; }
+        List<int> Sources { get; }
     }
 }

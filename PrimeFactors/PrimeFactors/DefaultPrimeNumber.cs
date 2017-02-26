@@ -12,7 +12,7 @@ namespace PrimeFactors
             this.maximum = maximum;
         }
 
-        public List<int> DataSources
+        public List<int> Sources
         {
             get
             {
@@ -30,7 +30,7 @@ namespace PrimeFactors
                         }
                     }
 
-                    if (isPrime)
+                    if (isPrime && prime != 1)
                     {
                         primes.Add(prime);
                     }
