@@ -1,5 +1,6 @@
 ﻿using PrimeFactors.Interface;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PrimeFactors
 {
@@ -14,24 +15,51 @@ namespace PrimeFactors
 
         public List<int> GetFactors(int value)
         {
-            int temporary = value;
+            var items = GetCommonPlus(value);
 
+            var model = new List<int>();
+            foreach (var item in items)
+            {
+                if (primes.Any(x => x == item) == false)
+                {
+                    model.AddRange(GetCommonPlus(item));
+                }
+                else
+                {
+                    model.Add(item);
+                }
+            }
+
+            return model;
+        }
+
+        private List<int> GetCommonPlus(int value)
+        {
             var items = new List<int>();
             foreach (var prime in primes)
             {
-                if (temporary % prime == 0 && temporary != 0)
+                if (value % prime == 0 && value != 0)
                 {
-                    for (int number = temporary; number >= prime; number -= prime)
+                    for (int number = value; number >= prime; number -= prime)
                     {
                         items.Add(prime);
-                        temporary -= prime;
+                        value -= prime;
                     }
                 }
             }
 
+            List<int> results = new List<int>();
+            foreach (var item in items.GroupBy(x => x))
+            {
+                results.Add(item.Key);
 
+                if (item.Count() > 1)
+                {
+                    results.Add(item.Count());
+                }
+            }
 
-            return items;
+            return results.OrderBy(x => x).ToList();
         }
     }
 }
