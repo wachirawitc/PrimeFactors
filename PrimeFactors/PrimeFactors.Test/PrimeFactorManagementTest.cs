@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using PrimeFactors.Interface;
-using System.Collections.Generic;
 using PrimeFactors.Internal;
+using System.Collections.Generic;
 
 namespace PrimeFactors.Test
 {
@@ -11,7 +11,7 @@ namespace PrimeFactors.Test
         [Test]
         public void GetFactors_ShouldReturn2_WhenInput2()
         {
-            IPrimeNumber primeNumber = new DefaultPrimeNumber(2);
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(maximum: 2);
             PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
 
             var expected = new List<int> { 2 };
@@ -23,7 +23,7 @@ namespace PrimeFactors.Test
         [Test]
         public void GetFactors_ShouldReturn3_WhenInput3()
         {
-            IPrimeNumber primeNumber = new DefaultPrimeNumber(3);
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(maximum: 3);
             PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
 
             var expected = new List<int> { 3 };
@@ -35,7 +35,7 @@ namespace PrimeFactors.Test
         [Test]
         public void GetFactors_ShouldReturn2_2_WhenInput4()
         {
-            IPrimeNumber primeNumber = new DefaultPrimeNumber(4);
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(maximum: 4);
             PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
 
             var expected = new List<int> { 2, 2 };
@@ -47,7 +47,7 @@ namespace PrimeFactors.Test
         [Test]
         public void GetFactors_ShouldReturn2_3_WhenInput6()
         {
-            IPrimeNumber primeNumber = new DefaultPrimeNumber(6);
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(maximum: 6);
             PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
 
             var expected = new List<int> { 2, 3 };
@@ -59,7 +59,7 @@ namespace PrimeFactors.Test
         [Test]
         public void GetFactors_ShouldReturn3_3_WhenInput9()
         {
-            IPrimeNumber primeNumber = new DefaultPrimeNumber(9);
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(maximum: 9);
             PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
 
             var expected = new List<int> { 3, 3 };
@@ -71,7 +71,7 @@ namespace PrimeFactors.Test
         [Test]
         public void GetFactors_ShouldReturn2_2_3_WhenInput12()
         {
-            IPrimeNumber primeNumber = new DefaultPrimeNumber(12);
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(maximum: 12);
             PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
 
             var expected = new List<int> { 2, 2, 3 };
@@ -83,7 +83,7 @@ namespace PrimeFactors.Test
         [Test]
         public void GetFactors_ShouldReturn3_5_WhenInput15()
         {
-            IPrimeNumber primeNumber = new DefaultPrimeNumber(15);
+            IPrimeNumber primeNumber = new DefaultPrimeNumber(maximum: 15);
             PrimeFactorManagement management = new PrimeFactorManagement(primeNumber);
 
             var expected = new List<int> { 3, 5 };
