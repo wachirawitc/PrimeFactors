@@ -20,10 +20,10 @@ namespace PrimeFactors
             while (scanner.HasNext() && value > 1)
             {
                 var prime = scanner.Value;
-                if (value % prime == 0)
+                if (CanDivision(value, prime))
                 {
-                    model.Add(prime);
                     value = value - (value / prime);
+                    model.Add(prime);
                 }
                 else
                 {
@@ -31,6 +31,11 @@ namespace PrimeFactors
                 }
             }
             return model;
+        }
+
+        private static bool CanDivision(int value, int prime)
+        {
+            return value % prime == 0;
         }
     }
 }
