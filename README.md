@@ -13,3 +13,5 @@ For example:</br>
 	12 -> [2,2,3]</br>
 	15 -> [3,5]</br>
 </br>
+</br>
+Ref algorithm http://www.msgarciamath.com/whole-numbers/prime-factorization/
