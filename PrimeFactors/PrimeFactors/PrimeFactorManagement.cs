@@ -15,25 +15,28 @@ namespace PrimeFactors
 
         public List<int> GetFactors(int value)
         {
-            var items = GetCommonPlus(value);
-
             var model = new List<int>();
-            foreach (var item in items)
+            foreach (var number in GetCommonPlus(value))
             {
-                if (primes.Any(x => x == item) == false)
+                if (IsNotPrimeNumber(number))
                 {
-                    model.AddRange(GetCommonPlus(item));
+                    model.AddRange(GetCommonPlus(number));
                 }
                 else
                 {
-                    model.Add(item);
+                    model.Add(number);
                 }
             }
 
-            return model.OrderBy(x => x).ToList();
+            return model.OrderBy(number => number).ToList();
         }
 
-        private List<int> GetCommonPlus(int value)
+        private bool IsNotPrimeNumber(int value)
+        {
+            return primes.Any(number => number == value) == false;
+        }
+
+        private IEnumerable<int> GetCommonPlus(int value)
         {
             var items = new List<int>();
             foreach (var prime in primes)
@@ -48,7 +51,7 @@ namespace PrimeFactors
                 }
             }
 
-            List<int> results = new List<int>();
+            var results = new List<int>();
             foreach (var item in items.GroupBy(x => x))
             {
                 results.Add(item.Key);
@@ -59,7 +62,7 @@ namespace PrimeFactors
                 }
             }
 
-            return results.OrderBy(x => x).ToList();
+            return results.OrderBy(number => number).ToList();
         }
     }
 }
